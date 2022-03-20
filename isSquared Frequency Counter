@@ -1,0 +1,24 @@
+
+# Online Python - IDE, Editor, Compiler, Interpreter
+
+def isSquared(a,b):
+    if(len(a) != len(b)):
+        return False
+    counter = {}
+    for x in a:
+        val = x * x
+        if val in counter:
+            counter[val] = counter[val] + 1 
+        else:
+            counter[val] = 1
+    for y in b:
+        if y in counter:
+            counter[y] = counter[y] - 1
+            if(counter[y] < 0):
+                return False
+        else:
+            return False
+    return True
+    
+print(isSquared([1,2, 1], [1,4,1]))
+    
