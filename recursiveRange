@@ -1,0 +1,7 @@
+def recursiveRange(num1):
+    if num1 == 0:
+        return 0
+    return num1 + recursiveRange(num1-1)
+
+print(recursiveRange (6))
+print(recursiveRange (10)) 
