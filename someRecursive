@@ -1,0 +1,28 @@
+def someRecursive(x, y):
+     if len(x) == 0:
+         return False
+     if y(x[0]):
+         return True
+     return someRecursive(x[1:], y)
+
+# Sample Input:
+isOdd = lambda val: val % 2 != 0
+
+def someRecursive_test():
+    try:
+        assert someRecursive([1,2,3,4], isOdd) == True
+        assert someRecursive([4,6,8,9], isOdd) == True
+        assert someRecursive([4,6,8], isOdd) == False
+        assert someRecursive([4,6,8], lambda val: val > 10) == False
+        print("All tests passed1!")
+
+    except AssertionError:
+        print("Some tests failed!")
+
+    else:
+        print("All tests passed2!")
+
+    finally:
+        print("Print this no matter what")
+
+someRecursive_test()
