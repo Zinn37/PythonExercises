@@ -1,0 +1,27 @@
+def flatten(arr):
+     if len(arr) == 0:
+         return []
+     if type(arr[0]) == list:
+         return flatten(arr[0]) + flatten(arr[1:])
+     return [arr[0]] + flatten(arr[1:])
+
+
+def flatten_test():
+     try:
+         assert flatten([1, 2, 3, [4, 5]]) == [1, 2, 3, 4, 5]
+         assert flatten([1, [2, [3, 4], [[5]]]]) == [1, 2, 3, 4, 5]
+         assert flatten([[1], [2], [3]]) == [1, 2, 3]
+         assert flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) == [1, 2, 3]
+         print("All tests passed1!")
+
+     except AssertionError:
+         print("Some tests failed!")
+
+     else:
+         print("All tests passed2!")
+
+     finally:
+         print("Print this no matter what")
+
+
+flatten_test()
